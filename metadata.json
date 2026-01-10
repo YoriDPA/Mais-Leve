@@ -1,0 +1,7 @@
+{
+  "name": "Mais Leve - Sanduicheria Digital",
+  "description": "Uma plataforma moderna e intuitiva para pedidos de sanduíches saudáveis com checkout simplificado.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

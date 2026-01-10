@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mais Leve - Alimentos</title>
+    
+    <!-- PWA Primary Meta -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Sanduicheria Digital - Qualidade e Leveza em cada pedido." />
+    <link rel="manifest" href="./manifest.json" />
+    
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mais Leve" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1046/1046747.png" />
+
+    <script>
+      window.process = { env: { 
+        API_KEY: ""
+      }};
+      
+      window.onerror = function(msg, url, line, col, error) {
+        console.error("Erro Crítico:", msg);
+        const root = document.getElementById('root');
+        if (root) {
+          root.innerHTML = `
+            <div style="padding: 40px; text-align: center; font-family: 'Montserrat', sans-serif; background: #000000; height: 100vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <h2 style="color: #FF5252; margin-bottom: 10px; font-weight: 900;">OPS!</h2>
+              <p style="color: #AAA; font-size: 14px; margin-bottom: 20px;">Ocorreu um erro ao carregar o app.</p>
+              <button onclick="location.reload()" style="padding: 16px 32px; background: #6AB03D; color: white; border: none; border-radius: 50px; font-weight: 900; cursor: pointer;">Tentar Novamente</button>
+            </div>`;
+        }
+      };
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0",
+    "@google/genai": "https://esm.sh/@google/genai@1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                darkGreen: '#6AB03D',
+                lightGreen: '#B4D64D',
+                orange: '#FFB13B',
+                red: '#FF5252',
+                paleGreen: '#CDDE9A',
+                text: '#E0E0E0',
+                bg: '#000000',
+                surface: '#121212',
+                border: '#1F1F1F'
+              }
+            },
+            fontFamily: { sans: ['Montserrat', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { 
+        background-color: #000000; 
+        margin: 0; 
+        -webkit-tap-highlight-color: transparent;
+        overflow-x: hidden;
+        color: #E0E0E0;
+      }
+      #root:empty { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh; 
+        width: 100vw;
+        background-color: #000000;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+      .animate-spin-custom { animation: spin 0.8s linear infinite; }
+      .animate-pulse-custom { animation: pulse 2s ease-in-out infinite; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root">
+      <div id="loader-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; background: #000000; width: 100vw; height: 100vh;">
+        
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 50px;">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; width: 44px;">
+            <div style="width: 20px; height: 20px; background-color: #FFB13B; border-radius: 3px;"></div>
+            <div style="width: 20px; height: 20px; background-color: #B4D64D; border-radius: 3px;"></div>
+            <div style="width: 20px; height: 20px; background-color: #CDDE9A; border-radius: 3px;"></div>
+            <div style="width: 20px; height: 20px; background-color: #FF5252; border-radius: 3px;"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; line-height: 0.75;">
+            <div style="display: flex; font-weight: 900; font-size: 32px; letter-spacing: -1.8px;">
+              <span style="color: #FFFFFF;">MAIS</span><span style="color: #B4D64D;">LEVE</span>
+            </div>
+            <span style="font-size: 11px; font-weight: 800; color: #888888; letter-spacing: 4px; margin-top: 6px; text-transform: uppercase;">ALIMENTOS</span>
+          </div>
+        </div>
+
+        <div style="width: 36px; height: 36px; border: 3.5px solid #1A1A1A; border-top: 3.5px solid #6AB03D; border-radius: 50%; margin-bottom: 28px;" class="animate-spin-custom"></div>
+        <p style="color: #6AB03D; font-weight: 800; font-size: 15px; letter-spacing: -0.2px;" class="animate-pulse-custom">
+          Carregando cardápio...
+        </p>
+      </div>
+    </div>
+    
+    <script type="text/babel" data-type="module" data-presets="env,react,typescript">
+      import React from 'react';
+      import { createRoot } from 'react-dom/client';
+      import App from './App.tsx';
+
+      const container = document.getElementById('root');
+      if (container) {
+        const root = createRoot(container);
+        root.render(
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        );
+      }
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW fail:', err));
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
